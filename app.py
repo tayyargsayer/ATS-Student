@@ -15,6 +15,9 @@ st.set_page_config(page_title="ATS Sistemi",
 st.header("Uygulama v1")
 
 
+"""Uygulama ayarları (streamlit app yönetim genel sayfasında) kısmından SECRETS kısmına, değişken tanımlıyorsunuz.
+Daha sonra bu değişkeni,  "os.getenv" fonksiyonu ile çağırarak kullanabilirsiniz, aşağıda bunun bir örneği mevcut.""
+DİKKAT!!!    .env dosyasını okumuyor, deploy ederken secrets kısmına tanımladığınız değişkenin, server tarafındaki local değerini tanımlıyor."""
 genai.configure(api_key= os.getenv("GOOGLE_API_KEY"))
 
 @st.cache_resource
