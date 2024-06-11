@@ -1,0 +1,8 @@
+jupyter
+streamlit
+google-generativeai
+openpyxl
+pillow
+PyPDF2
+PyMuPDF
+python-dotenv
