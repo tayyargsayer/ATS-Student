@@ -15,7 +15,7 @@ st.set_page_config(page_title="ATS Sistemi",
 st.header("Uygulama v1")
 
 
-genai.configure(api_key= st.secrets.ai_api_key.GOOGLE_API_KEY)
+genai.configure(api_key= os.getenv("GOOGLE_API_KEY"))
 
 @st.cache_resource
 def get_gemini_response(prompt):
