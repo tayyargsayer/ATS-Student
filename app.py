@@ -81,6 +81,7 @@ def read_pdf(file):
     return all_page_text
 
 
+
 @st.cache_resource
 def read_pdf_2(file_path):
     doc = fitz.open(file_path)
@@ -146,6 +147,8 @@ if genre == "PDF":
 
 
         else:
+
+            #TODO : Burada, kaç sayfa olursa olsun PDF dosyasının sadece 1 sayfası alınıyor ve bu sayfa üzerinden işlem yapılmaktadır. Ya CV örneği birden fazla sayfa olsaydı, "TEK" bir prompt içerisinde tüm sayfaları nasıl işleyebilirdik?
             with open("temp.pdf", "wb") as f:
                 f.write(yüklenen_pdf_dosyası.getbuffer())
             images = read_pdf_2("temp.pdf")
