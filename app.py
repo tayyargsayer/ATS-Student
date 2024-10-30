@@ -7,6 +7,8 @@ from PIL import Image
 from PyPDF2 import PdfReader
 import fitz  # this is pymupdf
 
+load_dotenv()
+
 
 st.set_page_config(page_title="ATS Sistemi",
                    page_icon=":robot:",
@@ -67,7 +69,6 @@ def get_gemini_response(prompt):
     return response, prompt_token_count, response_token_count
 
 
-@st.cache_resource
 def read_pdf(file):
     pdfReader = PdfReader(file)
     count = len(pdfReader.pages)
@@ -82,7 +83,6 @@ def read_pdf(file):
 
 
 
-@st.cache_resource
 def read_pdf_2(file_path):
     doc = fitz.open(file_path)
     images = []
@@ -147,7 +147,6 @@ if genre == "PDF":
 
 
         else:
-
             #TODO : Burada, kaç sayfa olursa olsun PDF dosyasının sadece 1 sayfası alınıyor ve bu sayfa üzerinden işlem yapılmaktadır. Ya CV örneği birden fazla sayfa olsaydı, "TEK" bir prompt içerisinde tüm sayfaları nasıl işleyebilirdik?
             with open("temp.pdf", "wb") as f:
                 f.write(yüklenen_pdf_dosyası.getbuffer())
